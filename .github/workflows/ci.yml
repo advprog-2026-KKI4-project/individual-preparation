@@ -12,6 +12,8 @@ jobs:
   build:
     name: Build, Test, Lint & Analyze
     runs-on: ubuntu-latest
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     steps:
       - name: Checkout repository
@@ -45,6 +47,5 @@ jobs:
         run: ./gradlew checkstyleMain checkstyleTest
 
       - name: SonarCloud analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        if: ${{ env.SONAR_TOKEN != '' }}
         run: ./gradlew sonar
