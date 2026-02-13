@@ -4,50 +4,36 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class VectorUtility {
-    
+
     public double[] add(double[] v1, double[] v2) {
         // TODO: Implement me properly!
         return new double[] { 0.0, 0.0, 0.0 };
     }
 
     public double[] subtract(double[] v1, double[] v2) {
-        // TODO: Implement me properly!
-        return new double[] { 0.0, 0.0, 0.0 };
-    }
-
-    public double[] multiply(double[] v1, int x) {
-        if (v1 == null) {
-            return new double[0];
+        if (v1.length != v2.length) {
+            throw new IllegalArgumentException("Vectors must be of the same length.");
         }
+
         double[] result = new double[v1.length];
         for (int i = 0; i < v1.length; i++) {
-            result[i] = v1[i] * x;
+            result[i] = v1[i] - v2[i];
         }
         return result;
     }
 
-    public double dotProduct(double[] v1, double[] v2) {
-        if (v1.length != v2.length) {
-            throw new IllegalArgumentException("Vectors must have the same length");
-        }
-
-        double sum = 0.0;
-        for (int i = 0; i < v1.length; i++) {
-            sum += v1[i] * v2[i];
-        }
-        return sum;
+    public double[] multiply(double[] v1, int x) {
+        // TODO: Implement me properly!
+        return new double[] { 0.0, 0.0, 0.0 };
     }
-    
+
+    public double dotProduct(double[] v1, double[] v2) {
+        // TODO: Implement me properly!
+        return 0.0;
+    }
+
     public double norm(double[] v1) {
-        if (v1 == null || v1.length == 0) {
-            throw new IllegalArgumentException("Vector cannot be null or empty");
-        }
-
-        double sumOfSquares = 0.0;
-        for (double value : v1) {
-            sumOfSquares += value * value;
-        }
-
-        return Math.sqrt(sumOfSquares);
+        // TODO: Implement me properly!
+        return 0.0;
     }
 }
