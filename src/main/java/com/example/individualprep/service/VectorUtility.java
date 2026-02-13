@@ -19,10 +19,17 @@ public class VectorUtility {
         // TODO: Implement me properly!
         return new double[] { 0.0, 0.0, 0.0 };
     }
-    
+
     public double dotProduct(double[] v1, double[] v2) {
-        // TODO: Implement me properly!
-        return 0.0;
+        if (v1.length != v2.length) {
+            throw new IllegalArgumentException("Vectors must have the same length");
+        }
+
+        double sum = 0.0;
+        for (int i = 0; i < v1.length; i++) {
+            sum += v1[i] * v2[i];
+        }
+        return sum;
     }
     
     public double norm(double[] v1) {
